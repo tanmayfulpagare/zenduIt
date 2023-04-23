@@ -1,0 +1,16 @@
+<div class="main-container">
+    <div class="list">
+        <div class="list-item" *ngFor="let item of items">
+            <div class="header"><div class="heading">{{item?.task}} </div><div class="status" [ngClass]="{ 'uncomplete' : item?.status === 'Uncomplete','unassigned' : item?.status === 'Unassigned','low-risk' : item?.status === 'Low Risk' }"><div class="dot"></div><div class="status-text">{{item?.status}}</div> </div> </div>
+            <div class="key-value">From: <span class="value">{{ item?.from}}</span></div>
+            <div class="key-value">To: <span class="value">{{ item?.from}}</span></div>
+            <div class="key-value">Due Date: <span class="value red-text">{{ item?.dueDate | date:'dd MMMM'}}</span></div>
+        </div>
+    </div>
+  
+    <div class="map">
+        <google-map height="623px" width="100%" [center]="center" [zoom]="zoom">
+            <map-marker *ngFor="let marker of markers" [position]="marker.position" [icon]="marker.icon"></map-marker>
+          </google-map>
+    </div>
+</div>

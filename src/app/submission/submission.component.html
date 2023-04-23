@@ -1,0 +1,38 @@
+<div class="main-container">   
+    <div class="heading">
+        Submissions
+    </div>
+    <ng-container>
+        <div class="container">
+            <div class="fillter-containeer">
+                <div class="filter">
+                    <app-searchbar [style]="{width:'334px'}" (search)="onSearch($event)"></app-searchbar>
+                </div>
+                <div class="filter">
+                   <app-dropdown  [style]="{width:'209px'}" [placeholder]="'Select Form'" [options]="fromOptions" (selectedValue)="onFromChange($event)" ></app-dropdown>
+                </div>
+                <div class="filter" >
+                   <app-dropdown [style]="{width:'209px'}" [placeholder]="'Select Status'" [options]="statusOptions" (selectedValue)="onStatusChange($event)"></app-dropdown>
+                </div>
+                <div class="filter">
+                  <app-datepicker [style]="{width:'209px'}" (dateChange)="onDateChange($event)"></app-datepicker>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="tabs">
+                    <div class="tab" [ngClass]="{'active': tab==='map'}" (click)="tab='map'">Map</div>
+                    <div class="tab" [ngClass]="{'active': tab==='list'}" (click)="tab='list'"> List</div>
+                </div>
+                <div class="export" (click)="onButtonClick()">
+                    <img class="icon-img" src="assets/export.svg" alt=""/>    
+                    <div class="export-text" >Export</div>
+                </div>
+            </div>    
+        </div>    
+        <div>
+            <app-list *ngIf="tab ==='list'"></app-list>
+            <app-map *ngIf="tab ==='map'"></app-map>
+        </div>
+    </ng-container>    
+</div>
+

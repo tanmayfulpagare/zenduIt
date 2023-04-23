@@ -1,0 +1,28 @@
+@import "../../../../assets/css/base.scss";
+
+.container{
+    height: 48px;
+    input[type="text"]{
+        padding-left:48px;
+        border: 1px solid $border-grey;
+        border-radius: 4px;
+        height: 48px;
+        height:-webkit-fill-available;
+        width: 286px;
+        width:-webkit-fill-available;
+    }
+
+    input[type="text"]::placeholder {
+        @include primary-font(400, normal);
+        @include fontsize-lineheight(16px, 21px);
+        color: $border-grey;
+      }
+
+    .search-icon{
+        position: absolute;
+        margin-left: 20px;
+        margin-top: 11px;
+        height: 24px;
+        width: 24px;
+    } 
+}    

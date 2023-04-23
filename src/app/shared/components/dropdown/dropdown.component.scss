@@ -1,0 +1,24 @@
+@import "../../../../assets/css/base.scss";
+
+.dropdown{
+    select{
+       padding: 13.5px 0px 13.5px 16px;
+       height: 48px;
+       border: 1px solid $border-grey;
+       border-radius: 4px;
+       @include primary-font(400, normal);
+       @include fontsize-lineheight(16px, 21px);
+       color: $black;
+       cursor: pointer;
+       -webkit-appearance: none;
+       appearance: none;
+    }
+    .caret-icon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -35px;
+        padding-right: 19px;
+        width: 24px;
+        height: 24px;
+     }
+   }

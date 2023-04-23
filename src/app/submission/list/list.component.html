@@ -1,0 +1,38 @@
+<table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" (change)="toggleSelectAll($event.target)" *ngIf="currentPage === 1"></th>
+        <th style="width:160px">Task</th>
+        <th style="width:160px">Status</th>
+        <th style="width:160px">From</th>
+        <th style="width:160px" >To</th>
+        <th style="width:160px">Customer Address</th>
+        <th style="width:160px">Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsToDisplay">
+        <td [ngClass]="{'show-selected':item.selected}"><input type="checkbox" [(ngModel)]="item.selected"  (change)="toggleSelect($event.target,item.id)"></td>
+        <td>{{ item.task }}</td>
+        <td><div class="status" [ngClass]="{ 'uncomplete' : item?.status === 'Uncomplete','unassigned' : item?.status === 'Unassigned','low-risk' : item?.status === 'Low Risk' }"><div class="dot"></div><div class="status-text">{{item?.status}}</div></div></td>
+        <td>{{ item.from }}</td>
+        <td>{{ item.to }}</td>
+        <td>{{ item.customerAddress }}</td>
+        <td>{{ item.dueDate | date:'MMM d, hh:mm a'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer"> 
+    <div class="page-info">{{(currentPage-1)*itemsPerPage + 1}} - {{ totalItems < currentPage*itemsPerPage ? totalItems : currentPage*itemsPerPage}} of {{totalItems}} submissions</div>
+    <div class="pagination">
+      <div class="page" (click)="currentPage === 1 ? null : onPageChange(currentPage - 1)" [ngClass] ="{'disable':currentPage === 1}"><img src="assets/next.svg" alt="" class="search-icon"></div>
+        <div class="page current-page">{{currentPage}}</div>
+        <div class="page" *ngIf="currentPage + 1 <= totalPages" (click)="onPageChange(currentPage + 1)">{{currentPage + 1 }}</div>
+        <div class="page-dots  page" *ngIf="currentPage + 1 < totalPages-2 ">...</div>
+        <div class="page" *ngIf="totalPages >= 5 && currentPage + 1 < totalPages-1" (click)="onPageChange(totalPages-1)">{{totalPages -1}}</div>
+        <div class="page" *ngIf="currentPage + 1 < totalPages" (click)="onPageChange(totalPages)">{{totalPages}}</div>
+      <div class="page"  (click)="currentPage === totalPages || !itemsToDisplay.length ? null : onPageChange(currentPage + 1)" [ngClass]="{'disable':currentPage === totalPages || !itemsToDisplay.length}"><img src="assets/prev.svg" alt="" class="search-icon"></div>  
+    </div>
+  </div>
+  

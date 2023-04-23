@@ -1,0 +1,23 @@
+$theme-color: #2188D9;
+$primary-font-family : 'Roboto';
+$border-grey: #B8B9BC;
+$white: #FFFFFF;
+$black: #060C1B;
+$light-grey: #ECECED;
+$dark-blue: #1773BB;
+$red: #FF3D00;
+$green: #53D86A;
+
+@mixin primary-font($weight, $style) {
+  font: {
+    family: $primary-font-family;
+    weight: $weight;
+    style: $style;
+  }
+}
+
+@mixin fontsize-lineheight($size, $height) {
+  font-size: $size;
+  line-height: $height;
+}
+

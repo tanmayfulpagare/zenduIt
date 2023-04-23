@@ -1,0 +1,34 @@
+@import "../../../../assets/css/base.scss";
+
+.container{
+    height: 48px;
+    input[type="date"]{
+        padding-left: 48px;
+        border: 1px solid $border-grey;
+        border-radius: 4px;        
+        @include primary-font(400, normal);
+        @include fontsize-lineheight(16px, 21px);
+        z-index: 1;
+        cursor: pointer;
+        height: 48px;
+        height:-webkit-fill-available;
+        width:-webkit-fill-available;
+    }
+     input[type="date"]::-webkit-calendar-picker-indicator {
+         background: transparent;
+         color: transparent;
+         cursor: pointer;
+         height: 48px;
+         position: absolute;
+         width: 161px;
+        color: red;
+     }
+    .datepicker-icon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: 10px;
+        width: 24px;
+        height: 24px;
+    }
+}
+

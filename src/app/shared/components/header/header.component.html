@@ -1,0 +1,18 @@
+<div class="header-container">
+    <div class="product-icon">
+      ZenduForms
+    </div>
+    <div class="tabs-container">
+      <ng-container *ngFor="let tab of tabs">
+        <div class="tab" [ngClass]="{'active': tab?.isTabActive}" (click)="redirectTo(tab)">
+          <img class="icon-img" [src]="tab?.imagePath" alt=""/>    
+          <div class="tab-name">{{tab?.name}}</div>
+        </div>
+      </ng-container>
+    </div>  
+    <div class="profile">
+      <img class="icon-img" src="assets/notifications.svg" alt="" (click)="onClick()"/>    
+      <img class="icon-img" src="assets/logout.svg" alt="" (click)="onClick()"/>    
+    </div>
+</div>
+

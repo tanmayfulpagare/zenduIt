@@ -1,0 +1,7 @@
+<div class="dropdown">
+    <select (change)="onSelect($event)" [style]="style">
+        <option disabled selected value="">{{placeholder}}</option>
+        <option *ngFor="let option of options" [value]="option?.value">{{option?.label}}</option>
+    </select>
+    <img src="assets/caret.svg" alt="" class="caret-icon">
+</div>

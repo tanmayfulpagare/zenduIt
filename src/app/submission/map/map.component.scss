@@ -1,0 +1,98 @@
+@import "../../../assets/css/base.scss";
+
+.main-container{
+    display: flex;
+    gap: 40px;
+    .list{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-height: 623px;
+        width: 379px;
+        overflow-y: scroll;
+       
+        .list-item{
+            background: $white;
+            border: 1px solid $border-grey;
+            border-radius: 4px;
+            padding: 16px;
+            .header{
+                display: flex;
+                justify-content: space-between;
+                .heading{
+                    @include primary-font(700, normal);
+                    @include fontsize-lineheight(18px, 25px);
+                    color: $black;
+                }
+                .status{
+                    padding: 4px 16px;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 4px;
+                    .dot {
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        margin-right: 8px;
+                      }
+                      .status-text{
+                        @include primary-font(500, normal);
+                        @include fontsize-lineheight(16px, 24px);
+                      }
+                }
+                .uncomplete{
+                    .dot{
+                        background: $red;
+                    }
+                    .status-text{
+                        color: $red;
+                    }
+                    border: 1px solid $red;
+                    background: rgba(255, 61, 0, 0.1);
+                }
+                .unassigned{
+                    .dot{
+                        background: $border-grey;
+                    }
+                    .status-text{
+                        color: $border-grey;
+                    }
+                    border: 1px solid $border-grey;
+                    background: $light-grey;
+                }
+                .low-risk{
+                    .dot{
+                        background: $green;
+                    }
+                    .status-text{
+                        color: $green;
+                    }
+                    border: 1px solid $green;
+                    background: #D7E5DA;
+                }
+            }
+            .key-value{
+                @include primary-font(500, normal);
+                @include fontsize-lineheight(16px, 29px);
+                color: $border-grey;
+                .value{
+                    font-weight: 400;
+                    color: $black;
+                }
+                .red-text{
+                    color: $red;
+                    font-weight: 500;
+                }
+            }
+
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; 
+    }
+    .map {
+        width: 71%;
+    }
+}
+

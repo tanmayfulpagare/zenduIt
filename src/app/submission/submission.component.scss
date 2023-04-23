@@ -1,0 +1,58 @@
+@import "../../assets/css/base.scss";
+
+.flex{
+    display: flex;
+}
+.main-container{
+    padding: 40px;
+    margin-top: 72px;
+    .heading{
+        @include primary-font(700, normal);
+        @include fontsize-lineheight(32px, 42px);
+        padding-bottom: 26px;
+    }
+    .container{
+        margin-bottom: 26px;
+        display: flex;
+        justify-content: space-between;
+        .fillter-containeer{
+            display: flex;
+            gap:40px;
+        }
+        .right-container{
+            display: flex;
+            gap: 28px;
+            .tabs{
+                background: $white;                
+                border: 1px solid #B8B9BC;
+                border-radius: 4px;
+                display: flex;
+                .tab{
+                    @include primary-font(400, normal);
+                    @include fontsize-lineheight(16px, 21px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    width: 80px;
+                }
+                .active{
+                    border: 1px solid $theme-color;
+                    color: $white;
+                    background: $theme-color;
+                }
+            }
+            .export{
+                display: flex;
+                gap: 8.5px;
+                cursor: pointer;
+                align-items: center;
+                .export-text{
+                    @include primary-font(500, normal);
+                    @include fontsize-lineheight(16px, 21px);
+                    color: $theme-color;
+                }   
+            }
+        }
+    }
+ }
